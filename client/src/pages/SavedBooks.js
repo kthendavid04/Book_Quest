@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 import { removeBookId } from '../utils/localStorage';
-import { getMe } from '../utils/queries';
+import { getBook } from '../utils/queries';
 import { deleteBook } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 
 const SavedBooks = () => {
-  const { loading, data} = useQuery(getMe);
+  const { loading, data} = useQuery(getBook);
   const [deleteBook] = useMutation(deleteBook);
   const userData = data?.me ||{};
 
