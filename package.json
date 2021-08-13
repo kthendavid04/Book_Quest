@@ -31,8 +31,8 @@
     "mongoose": "^5.13.7",
     "nodemon": "^2.0.12"
   },
-  
-  "homepage": "https://git.heroku.com/secret-eyrie-83800.git"
+
+  "homepage": "https://secret-eyrie-83800.herokuapp.com/"
 
 }
 
