@@ -7,12 +7,12 @@ import Auth from '../utils/auth';
 
 
 const SavedBooks = () => {
-  const { loading, data} = useQuery(getBook);
-  const [deleteBook] = useMutation(deleteBook);
+  const { loading, data} = (getBook);
+  const [removeBookk] = (deleteBook);
   const userData = data?.me ||{};
 
   // use this to determine if `useEffect()` hook needs to run again
-  const userDataLength = Object.keys(userData).length;
+  
   if(!userData?.username) {
     return(
       <h3>Something went wrong!</h3>
@@ -53,7 +53,7 @@ const SavedBooks = () => {
     }
 
     try {
-      await deleteBook({
+      await removeBookk({
         variables: { bookId: bookId },
       });
     //   const response = await deleteBook(bookId, token);
