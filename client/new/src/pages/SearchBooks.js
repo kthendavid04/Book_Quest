@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Jumbotron, Container, Col, Form, Button, Card, CardColumns, Row } from 'bootstrap/dist/css/bootstrap.min.css';
+import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 
 import Auth from '../utils/auth';
 import { saveBook } from '../utils/mutations';
@@ -14,8 +14,7 @@ const SearchBooks = () => {
   const [searchedBooks, setSearchedBooks] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
-  //const [ saveBook, { error, data } ] = useMutation(SAVE_BOOK)
-  const [ bookSave, { error, data } ] = useMutation(saveBook)
+  const [ bookSave ] = useMutation(saveBook)
 
   // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
@@ -81,7 +80,7 @@ const SearchBooks = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light bg-dark'>
+      <Jumbotron fluid className='text-light bg-dark' >
         <Container>
           <h1>Search for Books!</h1>
           <Form onSubmit={handleFormSubmit}>
