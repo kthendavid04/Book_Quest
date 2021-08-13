@@ -11,24 +11,20 @@ const typeDefs = gql`
         link: String
         title: String
     }
-
     type User {
         _id: ID
         username: String
         email: String
-        bookCount: Number
+        bookCount: Int
         savedBooks: [Book]        
     }
-
     type Query {
         me: User
     }
-
     type Auth {
         token: ID!
         user: User
     }
-
     input SavedBookInput {
         authors: [String]
         description: String

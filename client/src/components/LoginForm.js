@@ -1,18 +1,16 @@
 // see SignupForm.js for comments
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-import { useMutation } from '@apollo/client';
 
-import { loginUser } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
 
 const LoginForm = () => {
-  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
-  // eslint-disable-next-line no-unused-vars
-  const [ userLogin, { error } ] = useMutation(loginUser);
-
+  const [ userFormData, setUserFormData ] = useState({ email: '', password: '' });
+  const [ validated ] = useState(false);
+  const [ showAlert, setShowAlert ] = useState(false);
+  const [ loginUser, { error } ] = useMutation(LOGIN_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -30,12 +28,11 @@ const LoginForm = () => {
     }
 
     try {
-      const { data } = await userLogin({
+      const { data } = await loginUser({
         variables: {...userFormData} 
       });
 
       Auth.login(data.login.token);
-
     } catch (err) {
       console.error(err);
       setShowAlert(true);
