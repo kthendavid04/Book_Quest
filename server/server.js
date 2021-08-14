@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 8080;
 // });
 
 
-server.applyMiddleware({ app });
+// server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
