@@ -1,4 +1,3 @@
-const express = require('express');
 const path = require('path');
 const db = require('./config/connection');
 const routes = require('./routes');
@@ -8,16 +7,19 @@ const { typeDefs, resolvers } = require('./Schema');
 const { authMiddleware } = require('./utils/auth');
 
 const app = express();
-const PORT = process.env.PORT || 8080;
-//app.set("port", PORT);
-// const server = new ApolloServer({
-//   typeDefs,
-//   resolvers,
-//   context: authMiddleware
-// });
+const PORT = process.env.PORT || 3001;
+app.set("port", PORT);
 
+async function wait(){
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: authMiddleware
+});
+  await server.start();
+}
 
-// server.applyMiddleware({ app });
+wait.applyserver.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
