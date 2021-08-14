@@ -11,16 +11,15 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 app.set("port", PORT);
 
-async function wait(){
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware
 });
-  await server.start();
-}
 
-wait.applyserver.applyMiddleware({ app });
+
+server.yapplyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
