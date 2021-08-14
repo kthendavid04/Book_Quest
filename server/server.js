@@ -6,10 +6,10 @@ const routes = require('./routes');
 const { ApolloServer } = require('apollo-server-express');
 const { typeDefs, resolvers } = require('./Schema');
 const { authMiddleware } = require('./utils/auth');
-//
+
 const app = express();
-const PORT = process.env.PORT || 3001;
-// 
+const PORT = process.env.PORT || '8080';
+app.set("port", PORT);
 const server = new ApolloServer({
   typeDefs,
   resolvers,
